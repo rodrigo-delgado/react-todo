@@ -1,12 +1,11 @@
 //Every react Component needs a render method
 const React = require('react')
 const ReactDOM = require('react-dom')
-// const Main = require('Main')
-// const Timer = require('Timer')
-// const Countdown = require('Countdown')
-
 //Below is es6 object destructuring
 const {Route, Router, IndexRoute, hashHistory} = require('react-router')
+const TodoApp = require('TodoApp')
+
+
 
 //Load foundation
 $(document).foundation()
@@ -14,13 +13,6 @@ $(document).foundation()
 require('style!css!sass!applicationStyles')
 
   ReactDOM.render(
-    // <Router history={hashHistory}>
-    //   <Route path='/' component={Main}>
-    //   <Route path='timer' component={Timer}/>
-    //   <Route path='countdown' component={Countdown}/>
-    //   <IndexRoute component={Timer}/>
-    //   </Route>
-    // </Router>,
-    <p>Boilerplate3 Project</p>,
+    <TodoApp/>,
     document.getElementById('app')
   )
