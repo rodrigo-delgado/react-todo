@@ -4,12 +4,31 @@ const ReactDOM = require('react-dom')
 const TestUtils = require('react-addons-test-utils')
 const $ = require('jQuery')
 
-const Countdown = require('Countdown')
+const TodoList = require('TodoList')
+const Todo = require('Todo')
 
-describe('Countdown', () => {
+describe('TodoList', () => {
   it('should exist', () => {
-    expect(Countdown).toExist()
+    expect(TodoList).toExist()
   })
+  it('should render one Todo component for each todo item', () => {
+    const todos =
+  [
+    {
+      id: 1,
+      text: 'Do something'
+    },
+    {
+      id: 2,
+      text: 'Check mail'
+    }
+  ]
+  const todoList = TestUtils.renderIntoDocument(<TodoList todos={todos}/>)
+  const todosComponents = TestUtils.scryRenderedComponentsWithType(todoList, Todo)
+
+  expect(todosComponents.length).toBe(todos.length)
+ })
+})
 
 //   describe('handleSetCountdown', () => {
 //     it('should set state to started and countdown', (done) =>  {
