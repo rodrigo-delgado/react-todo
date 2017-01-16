@@ -5,7 +5,7 @@ const uuid = require('node-uuid')
 const TodoList = require('TodoList')
 const AddTodo = require('AddTodo')
 const TodoSearch = require('TodoSearch')
-var TodoAPI = require('TodoAPI')
+const TodoAPI = require('TodoAPI')
 
 
 
@@ -50,7 +50,9 @@ const TodoApp = React.createClass({
     })
   },
   render: function () {
-    const {todos} = this.state
+    const {todos, showCompleted, searchText} = this.state
+    const filterTodos = TodoAPI.filterTodos(todos, showCompleted, searchText)
+
     return (
       <div>
         <TodoSearch onSearch={this.handleSearch}/>

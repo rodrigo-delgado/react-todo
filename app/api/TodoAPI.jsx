@@ -1,4 +1,4 @@
-var $ = requiere('jquery')
+const $ = require('jquery')
 
 module.exports = {
   setTodos: function (todos) {
@@ -8,8 +8,8 @@ module.exports = {
     }
   },
   getTodos: function () {
-    const stringTodos = localStorage.getItem('todos')
-    const todos = []
+    var stringTodos = localStorage.getItem('todos')
+    var todos = []
 
     try {
       todos = JSON.parse(stringTodos)
@@ -17,5 +17,16 @@ module.exports = {
 
    }
    return $.isArray(todos) ? todos : []
-  }
+ },
+ filterTodos: function (todos, showCompleted, searchText) {
+    let filteredTodos = todos
+
+   filteredTodos = filteredTodos.filter((todo) => {
+     return !todo.completed || showCompleted
+   })
+   //Filter by searchText
+
+   //sort todos with non-competed first
+   return filteredTodos
+ }
 }
