@@ -1,6 +1,7 @@
 const React = require('react')
 //node universal unique random id generator
 const uuid = require('node-uuid')
+const moment = require('moment')
 
 const TodoList = require('TodoList')
 const AddTodo = require('AddTodo')
@@ -21,9 +22,10 @@ const TodoApp = React.createClass({
     TodoAPI.setTodos(this.state.todos)
   },
   handleToggle: function (id) {
-    const updatedTodos = this.state.todos.map((todo) => {
+    var updatedTodos = this.state.todos.map((todo) => {
       if (todo.id === id) {
         todo.completed = !todo.completed
+        todo.completedAt = todo.completed ? moment().unix() : undefined
       }
       return todo
     })
@@ -38,7 +40,9 @@ const TodoApp = React.createClass({
         {
           id: uuid(),
           text: text,
-          completed: false
+          completed: false,
+          createdAt: moment().unix(),
+          completedAt: undefined
         }
       ]
     })
