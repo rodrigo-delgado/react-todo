@@ -4,7 +4,7 @@ const ReactDOM = require('react-dom')
 const TestUtils = require('react-addons-test-utils')
 const $ = require('jquery')
 
-const Todo = require('Todo')
+const {Todo} = require('Todo')
 
 describe('Todo', () => {
   it('should exist', () => {

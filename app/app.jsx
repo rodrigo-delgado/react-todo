@@ -1,6 +1,7 @@
 //Every react Component needs a render method
 const React = require('react')
 const ReactDOM = require('react-dom')
+const {Provider} = require('react-redux')
 //Below is es6 object destructuring
 const {Route, Router, IndexRoute, hashHistory} = require('react-router')
 
@@ -22,6 +23,8 @@ $(document).foundation()
 require('style!css!sass!applicationStyles')
 
   ReactDOM.render(
-    <TodoApp/>,
+    <Provider store={store}>
+      <TodoApp/>
+    </Provider>,
     document.getElementById('app')
   )
