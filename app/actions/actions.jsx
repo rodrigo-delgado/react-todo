@@ -1,25 +1,31 @@
-export var setSearchText = (searchText) => {
+export const setSearchText = (searchText) => {
   return {
     type: 'SET_SEARCH_TEXT',
     searchText
   }
 }
 
-export var toggleShowCompleted = () => {
+export const toggleShowCompleted = () => {
   return {
     type: 'TOGGLE_SHOW_COMPLETED',
   }
 }
 
-export var toggleTodo = (id) => {
+export const toggleTodo = (id) => {
   return {
     type: 'TOGGLE_TODO',
     id
   }
 
 }
+export const addTodos = (todos) => {
+  return {
+    type: 'ADD_TODOS',
+    todos
+  }
+}
 
-export var addTodo = (text) => {
+export const addTodo = (text) => {
   return {
     type: 'ADD_TODO',
     text

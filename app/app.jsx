@@ -4,15 +4,19 @@ const ReactDOM = require('react-dom')
 const {Provider} = require('react-redux')
 //Below is es6 object destructuring
 const {Route, Router, IndexRoute, hashHistory} = require('react-router')
-
 const TodoApp = require('TodoApp')
-
 const actions = require('actions')
-var store = require('configureStore').configure();
+const store = require('configureStore').configure()
+const TodoAPI = require('TodoAPI')
 
 store.subscribe(() => {
-  console.log('New state', store.getState());
+  const state = store.getState()
+  console.log('New state', state)
+  TodoAPI.setTodos(state.todos)
 })
+
+const initialTodos = TodoAPI.getTodos()
+store.dispatch(actions.addTodos(initialTodos))
 
 //Load foundation
 $(document).foundation()
