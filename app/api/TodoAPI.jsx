@@ -2,7 +2,7 @@ const $ = require('jquery')
 
 module.exports = {
   setTodos: function (todos) {
-//convert the object into an array usimg jquery
+//convert the object into an array using jquery
     if ($.isArray(todos)) {
 //convert the array into a string
 //localStorage CANNOT save your data if is Object or Array
