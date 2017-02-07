@@ -10,25 +10,6 @@ describe('TodoAPI', () => {
     beforeEach(() => {
       localStorage.removeItem('todos')
     })
-    it('should set valid todos array', () => {
-      var todos = [{
-        id: 23,
-        test: 'test all files',
-        completed: false
-      }]
-      TodoAPI.setTodos(todos)
-
-      var actualTodos = JSON.parse(localStorage.getItem('todos'))
-
-      expect(actualTodos).toEqual(todos)
-    })
-
-    it('should not set invalid todos array', () => {
-    var badTodos = {a:'Bad Data'}
-    TodoAPI.setTodos(badTodos)
-
-    expect(localStorage.getItem('todos')).toBe(null)
-  })
 })
   describe('getTodos', () => {
     //test when is not data stored (invalid data)
