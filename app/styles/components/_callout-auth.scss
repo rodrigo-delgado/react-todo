@@ -1,0 +1,24 @@
+.callout-auth {
+  background-color: $light-grey;
+
+  border: 1px solid $light-grey-border;
+  padding: 2rem;
+  text-align: center;
+
+    -webkit-transition: all 0.3s ease 0s;
+       -moz-transition: all 0.3s ease 0s;
+        -ms-transition: all 0.3s ease 0s;
+         -o-transition: all 0.3s ease 0s;
+            transition: all 0.3s ease 0s;
+
+  h3, p {
+    margin-bottom: 2rem;
+  }
+}
+
+.callout-auth:hover .callout-auth {
+    border: 3px solid #009ee3;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    color: #009ee3;
+}
